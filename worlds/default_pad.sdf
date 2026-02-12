@@ -102,55 +102,19 @@
       </plugin>
 
       <plugin
-        filename="libwave_motion_plugin.so"
-        name="gz::sim::systems::WavePlatformPlugin">
-        <!-- calm whether -->
-        <!-- <r_a1>0.01</r_a1> <r_f1>0.1</r_f1>
-        <r_a2>0.002</r_a2> <r_f2>0.2</r_f2>
-        <r_p2>1.2</r_p2>
-        <r_drift_a>0.005</r_drift_a>
-        <r_drift_f>0.01</r_drift_f>
-        <p_a1>0.01</p_a1> <p_f1>0.1</p_f1>
-        <p_a2>0.002</p_a2> <p_f2>0.2</p_f2>
-        <p_p1>0.7</p_p1>
-        <p_drift_a>0.005</p_drift_a>
-        <p_drift_f>0.01</p_drift_f>
-        <h_a1>0.01</h_a1> <h_f1>0.2</h_f1>
-        <h_a2>0.005</h_a2> <h_f2>0.4</h_f2>
-        <h_p2>0.4</h_p2>
-        <noise_scale>0.0001</noise_scale> -->
+        filename="libwave_motion_plugin2.so"
+        name="gz::sim::systems::WavePlatformPlugin2">
 
-        <!-- high waves -->
-        <!-- <r_a1>0.25</r_a1> <r_f1>0.3</r_f1>
-        <r_a2>0.01</r_a2> <r_f2>0.1</r_f2>
-        <r_p2>1.2</r_p2>
-        <r_drift_a>0.04</r_drift_a>
-        <r_drift_f>0.05</r_drift_f>
-        <p_a1>0.15</p_a1> <p_f1>0.25</p_f1>
-        <p_a2>0.01</p_a2> <p_f2>0.1</p_f2>
-        <p_p1>0.7</p_p1>
-        <p_drift_a>0.03</p_drift_a>
-        <p_drift_f>0.04</p_drift_f>
-        <h_a1>0.12</h_a1> <h_f1>0.4</h_f1>
-        <h_a2>0.01</h_a2> <h_f2>0.2</h_f2>
-        <h_p2>0.4</h_p2>
-        <noise_scale>0.0001</noise_scale> -->
+        <!-- SS4 -->
+        <surge_a1>1.0</surge_a1>
+        <surge_p1>12.0</surge_p1>
 
-        <!-- stormy whether -->
-        <r_a1>0.12</r_a1> <r_f1>0.4</r_f1>
-        <r_a2>0.05</r_a2> <r_f2>0.9</r_f2>
-        <r_p2>1.2</r_p2>
-        <r_drift_a>0.03</r_drift_a>
-        <r_drift_f>0.05</r_drift_f>
-        <p_a1>0.08</p_a1> <p_f1>0.35</p_f1>
-        <p_a2>0.04</p_a2> <p_f2>0.8</p_f2>
-        <p_p1>0.7</p_p1>
-        <p_drift_a>0.02</p_drift_a>
-        <p_drift_f>0.04</p_drift_f>
-        <h_a1>0.04</h_a1> <h_f1>0.6</h_f1>
-        <h_a2>0.02</h_a2> <h_f2>1.2</h_f2>
-        <h_p2>0.4</h_p2>
-        <noise_scale>0.0001</noise_scale>
+        <heave_a2>0.33</heave_a2>
+        <heave_p2>6.25</heave_p2>
+
+        <roll_a1>11.0</roll_a1>
+        <pitch_a1>3.1</pitch_a1>
+        <yaw_a1>2.14</yaw_a1>
 
       </plugin>
 
