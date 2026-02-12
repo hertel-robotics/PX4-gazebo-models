@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <world name="default_pad">
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <scene>
+      <grid>false</grid>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1 1</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+
+
+    </model>
+    <light name="sunUTC" type="directional">
+      <pose>0 0 500 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78</direction>
+      <diffuse>0.904 0.904 0.904 1</diffuse>
+      <specular>0.271 0.271 0.271 1</specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+     <include>
+      <uri>model://aruco_pad</uri>
+      <name>aruco_pad</name>
+      <pose>1.45 0.0 2.0 0.0 0.0 0.0</pose>
+      <plugin name="gz::sim::systems::PosePublisher" filename="libgz-sim-pose-publisher-system.so">
+        <publish_link_pose>true</publish_link_pose>
+          <publish_model_pose>true</publish_model_pose>
+          <publish_nested_model_pose>true</publish_nested_model_pose>
+          <publish_world_pose>true</publish_world_pose>
+          <update_rate>30</update_rate>
+      </plugin>
+       <plugin
+        filename="libcar_square_motion_plugin.so"
+        name="gz::sim::systems::CarSquareMotionPlugin">
+      </plugin>
+
+      <plugin
+        filename="libwave_motion_plugin.so"
+        name="gz::sim::systems::WavePlatformPlugin">
+        <!-- calm whether -->
+        <!-- <r_a1>0.01</r_a1> <r_f1>0.1</r_f1>
+        <r_a2>0.002</r_a2> <r_f2>0.2</r_f2>
+        <r_p2>1.2</r_p2>
+        <r_drift_a>0.005</r_drift_a>
+        <r_drift_f>0.01</r_drift_f>
+        <p_a1>0.01</p_a1> <p_f1>0.1</p_f1>
+        <p_a2>0.002</p_a2> <p_f2>0.2</p_f2>
+        <p_p1>0.7</p_p1>
+        <p_drift_a>0.005</p_drift_a>
+        <p_drift_f>0.01</p_drift_f>
+        <h_a1>0.01</h_a1> <h_f1>0.2</h_f1>
+        <h_a2>0.005</h_a2> <h_f2>0.4</h_f2>
+        <h_p2>0.4</h_p2>
+        <noise_scale>0.0001</noise_scale> -->
+
+        <!-- high waves -->
+        <!-- <r_a1>0.25</r_a1> <r_f1>0.3</r_f1>
+        <r_a2>0.01</r_a2> <r_f2>0.1</r_f2>
+        <r_p2>1.2</r_p2>
+        <r_drift_a>0.04</r_drift_a>
+        <r_drift_f>0.05</r_drift_f>
+        <p_a1>0.15</p_a1> <p_f1>0.25</p_f1>
+        <p_a2>0.01</p_a2> <p_f2>0.1</p_f2>
+        <p_p1>0.7</p_p1>
+        <p_drift_a>0.03</p_drift_a>
+        <p_drift_f>0.04</p_drift_f>
+        <h_a1>0.12</h_a1> <h_f1>0.4</h_f1>
+        <h_a2>0.01</h_a2> <h_f2>0.2</h_f2>
+        <h_p2>0.4</h_p2>
+        <noise_scale>0.0001</noise_scale> -->
+
+        <!-- stormy whether -->
+        <r_a1>0.12</r_a1> <r_f1>0.4</r_f1>
+        <r_a2>0.05</r_a2> <r_f2>0.9</r_f2>
+        <r_p2>1.2</r_p2>
+        <r_drift_a>0.03</r_drift_a>
+        <r_drift_f>0.05</r_drift_f>
+        <p_a1>0.08</p_a1> <p_f1>0.35</p_f1>
+        <p_a2>0.04</p_a2> <p_f2>0.8</p_f2>
+        <p_p1>0.7</p_p1>
+        <p_drift_a>0.02</p_drift_a>
+        <p_drift_f>0.04</p_drift_f>
+        <h_a1>0.04</h_a1> <h_f1>0.6</h_f1>
+        <h_a2>0.02</h_a2> <h_f2>1.2</h_f2>
+        <h_p2>0.4</h_p2>
+        <noise_scale>0.0001</noise_scale>
+
+      </plugin>
+
+
+    </include>
+
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.397971057728974</latitude_deg>
+      <longitude_deg> 8.546163739800146</longitude_deg>
+      <elevation>0</elevation>
+    </spherical_coordinates>
+  </world>
+</sdf>
