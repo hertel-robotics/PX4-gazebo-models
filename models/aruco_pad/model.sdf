@@ -21,6 +21,15 @@
           <diffuse>0.2 0.2 0.2 1</diffuse>
         </material>
       </visual>
+      <sensor name="navsat_sensor" type="navsat">
+		<always_on>1</always_on>
+		<update_rate>30</update_rate>
+		<noise>
+		    <type>gaussian</type>
+		    <mean>0.0</mean>
+		    <stddev>0.0</stddev>
+		  </noise>
+	</sensor>
     </link>
 
     <include>
