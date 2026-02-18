@@ -106,7 +106,7 @@
   </library_effects>
   <library_images>
     <image id="marker_tiles_square_png" name="marker_tiles_square_png">
-      <init_from>model://aruco_sticker2/materials/textures/marker_tiles_square.png</init_from>
+      <init_from>model://aruco_sticker2/materials/textures/marker_tiles_square2.png</init_from>
     </image>
   </library_images>
   <library_materials>
