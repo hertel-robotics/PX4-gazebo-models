@@ -85,7 +85,7 @@
         <falloff>0</falloff>
       </spot>
     </light>
-     <include>
+     <!-- <include>
       <uri>file:///home/ubuntu/gazebo_models/aruco_box_april</uri>
       <name>aruco_box_0</name>
       <pose>1.45 0.0 2.0 0.0 0.0 0.0</pose>
@@ -95,7 +95,7 @@
           <publish_nested_model_pose>true</publish_nested_model_pose>
           <publish_world_pose>true</publish_world_pose>
           <update_rate>30</update_rate>
-      </plugin>
+      </plugin> -->
       <!-- <plugin
         filename="liblinear_motion_plugin.so"
         name="gz::sim::systems::LinearMotionPlugin">
@@ -104,10 +104,10 @@
         <speed>2.5</speed>
       </plugin> -->
 
-      <plugin
+      <!-- <plugin
         filename="libcar_square_motion_plugin.so"
         name="gz::sim::systems::CarSquareMotionPlugin">
-      </plugin>
+      </plugin> -->
 
       <!-- <plugin
         filename="libwave_motion_plugin.so"
@@ -163,7 +163,7 @@
       </plugin> -->
 
 
-    </include>
+    <!-- </include> -->
 
 
     <spherical_coordinates>

@@ -85,7 +85,20 @@
         <falloff>0</falloff>
       </spot>
     </light>
-     <include>
+
+    <include>
+    <uri>model://aruco_pad</uri>
+      <name>aruco_pad</name>
+      <pose>5.45 0.0 2.0 0.0 0.0 0.0</pose>
+      <plugin name="gz::sim::systems::PosePublisher" filename="libgz-sim-pose-publisher-system.so">
+        <publish_link_pose>true</publish_link_pose>
+          <publish_model_pose>true</publish_model_pose>
+          <publish_nested_model_pose>true</publish_nested_model_pose>
+          <publish_world_pose>true</publish_world_pose>
+          <update_rate>30</update_rate>
+      </plugin>
+    </include>
+     <!-- <include>
       <uri>model://aruco_pad</uri>
       <name>aruco_pad</name>
       <pose>5.45 0.0 2.0 0.0 0.0 0.0</pose>
@@ -105,7 +118,6 @@
         filename="libwave_motion_plugin2.so"
         name="gz::sim::systems::WavePlatformPlugin2">
 
-        <!-- SS4 -->
         <surge_a1>1.0</surge_a1>
         <surge_p1>12.0</surge_p1>
 
@@ -119,7 +131,7 @@
       </plugin>
 
 
-    </include>
+    </include> -->
 
 
     <spherical_coordinates>
