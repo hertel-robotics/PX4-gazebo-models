@@ -284,29 +284,35 @@
     <include>
       <uri>model://aruco_sticker5</uri>
       <name>marker_5</name>
-      <pose>0.34 0.34 0.011 0 0 0</pose>
+      <pose>0.34 0.34 0.005 0 0 0</pose>
     </include>
     <include>
       <uri>model://aruco_sticker6</uri>
       <name>marker_6</name>
-      <pose>0.34 -0.34 0.011 0 0 0</pose>
+      <pose>0.34 -0.34 0.005 0 0 0</pose>
     </include>
     <include>
       <uri>model://aruco_sticker7</uri>
       <name>marker_7</name>
-      <pose>-0.34 0.34 0.011 0 0 0</pose>
+      <pose>-0.34 0.34 0.005 0 0 0</pose>
     </include>
     <include>
       <uri>model://aruco_sticker8</uri>
       <name>marker_8</name>
-      <pose>-0.34 -0.34 0.011 0 0 0</pose>
+      <pose>-0.34 -0.34 0.005 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://aruco_sticker9</uri>
       <name>marker_9</name>
-      <pose>0 0 0.012 0 0 0</pose>
+      <pose>1 1 0.012 0 0 0</pose>
     </include>
+
+
+    <plugin
+        filename="libcar_square_motion_plugin.so"
+        name="gz::sim::systems::CarSquareMotionPlugin">
+      </plugin>
    <!-- <plugin
         filename="libwave_motion_plugin2.so"
         name="gz::sim::systems::WavePlatformPlugin2">
@@ -323,7 +329,7 @@
 
       </plugin> -->
 
-      <plugin
+      <!-- <plugin
         filename="libcar_waves_motion_plugin.so"
         name="gz::sim::systems::CarWavesMotionPlugin">
 
@@ -339,7 +345,7 @@
         <side_length>30</side_length>
         <speed>5</speed>
 
-      </plugin>
+      </plugin> -->
 
     <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
       <joint_name>motor_0</joint_name>
