@@ -312,6 +312,7 @@
     <plugin
         filename="libcar_square_motion_plugin.so"
         name="gz::sim::systems::CarSquareMotionPlugin">
+        <side_length>30</side_length>
       </plugin>
    <!-- <plugin
         filename="libwave_motion_plugin2.so"
