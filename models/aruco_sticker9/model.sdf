@@ -22,7 +22,7 @@
           <geometry>
             <mesh>
                 <uri>model://aruco_sticker9/model.dae</uri>
-                <scale>0.0625 0.0625 0.00625</scale>
+                <scale>0.125 0.125 0.00625</scale>
             </mesh>
           </geometry>
         </visual>

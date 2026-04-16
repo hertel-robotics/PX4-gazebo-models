@@ -305,30 +305,35 @@
     <include>
       <uri>model://aruco_sticker9</uri>
       <name>marker_9</name>
-      <pose>1 1 0.012 0 0 0</pose>
+      <pose>0 0 0.012 0 0 0</pose>
     </include>
 
 
-    <plugin
+    <!-- <plugin
         filename="libcar_square_motion_plugin.so"
         name="gz::sim::systems::CarSquareMotionPlugin">
         <side_length>30</side_length>
-      </plugin>
-   <!-- <plugin
+      </plugin> -->
+   <plugin
         filename="libwave_motion_plugin2.so"
         name="gz::sim::systems::WavePlatformPlugin2">
 
         <surge_a1>1.0</surge_a1>
         <surge_p1>12.0</surge_p1>
 
-        <heave_a2>0.33</heave_a2>
-        <heave_p2>6.25</heave_p2>
+
+        <heave_a1>1.0</heave_a1>
+        <heave_p1>30</heave_p1>
+
+        <heave_a2>0.0</heave_a2>
+
+        <heave_a3>0.0</heave_a3>
 
         <roll_a1>11.0</roll_a1>
         <pitch_a1>3.1</pitch_a1>
         <yaw_a1>2.14</yaw_a1>
 
-      </plugin> -->
+      </plugin>
 
       <!-- <plugin
         filename="libcar_waves_motion_plugin.so"
