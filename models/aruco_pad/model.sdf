@@ -3,12 +3,22 @@
   <model name="aruco_pad">
     <static>true</static>
     <link name="base_link">
-      <collision name="collision">
+      <collision name="pad_collision_surface">
         <geometry>
           <box>
-            <size>3.0 3.0 0.01</size>
+            <size>3.0 3.0 0.1</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100.0</mu> <mu2>100.0</mu2> </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1000000.0</kp> <kd>1.0</kd> </ode>
+          </contact>
+        </surface>
       </collision>
       <visual name="visual_base">
         <geometry>
@@ -22,6 +32,7 @@
           <diffuse>0.2 0.2 0.2 1</diffuse>
         </material>
       </visual>
+
       <sensor name="navsat_sensor" type="navsat">
         <always_on>1</always_on>
         <update_rate>30</update_rate>
@@ -307,7 +318,30 @@
       <name>marker_9</name>
       <pose>0 0 0.012 0 0 0</pose>
     </include>
+    <!-- 1. The Sensor: Detects the touch -->
+    <plugin
+      filename="libtouch_plugin_mod.so"
+      name="gz::sim::systems::TouchPluginMod">
+      <target>x500</target>
+      <namespace>pad</namespace>
+      <link_name>base_link</link_name>
+      <time>0.1</time>
+      <enabled>true</enabled>
+      <create_contact_sensor_for_collision>true</create_contact_sensor_for_collision>
+      <!-- <collision>pad_collision_surface</collision> -->
+    </plugin>
 
+    <!-- 2. The Magnet: Creates the joint -->
+    <plugin
+      filename="libdetachable_joint_mod.so"
+      name="gz::sim::systems::DetachableJointMod">
+      <parent_link>base_link</parent_link>
+      <child_model>x500_mono_cam_down_0</child_model>
+      <child_link>base_link</child_link>
+      <attach_topic>/pad/touched</attach_topic> 
+      <topic>/pad/dettach</topic>
+      <detach_topic>/pad/dettach</detach_topic>
+    </plugin>
 
     <!-- <plugin
         filename="libcar_square_motion_plugin.so"
@@ -322,12 +356,14 @@
         <surge_p1>12.0</surge_p1>
 
 
-        <heave_a1>1.0</heave_a1>
+        <heave_a1>0.5</heave_a1>
         <heave_p1>30</heave_p1>
 
-        <heave_a2>0.0</heave_a2>
+        <heave_a2>0.2</heave_a2>
+        <heave_p2>10.0</heave_p2>
 
-        <heave_a3>0.0</heave_a3>
+        <heave_a3>1.0</heave_a3>
+        <heave_p3>4.0</heave_p3>
 
         <roll_a1>11.0</roll_a1>
         <pitch_a1>3.1</pitch_a1>
